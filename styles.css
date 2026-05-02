@@ -1,0 +1,567 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --section-bg: #fdfaf6;
+    --card-bg: #ffffff;
+    --heading-color: #6b4c1a;
+    --primary-color: #b5651d;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* Scroll Progress Bar */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: transparent;
+    z-index: 2000;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #b5651d, #e29f58);
+    width: 0%;
+    transition: width 0.1s ease-out;
+}
+
+/* Floating Weather Widget */
+.weather-widget {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.weather-icon {
+    font-size: 1.5rem;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.weather-info .temp {
+    font-weight: bold;
+    color : var(--text-color);
+    font-size: 1.1rem;
+}
+
+.weather-info .city {
+
+    color:var(--text-color);
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    /* Using a high-quality free Wikimedia Commons image of the Amphitheatre of El Jem */
+    background: linear-gradient(rgba(45, 25, 0, 0.6), rgba(45, 25, 0, 0.8)), 
+                url('https://commons.wikimedia.org/wiki/Special:FilePath/Amphitheatre_of_El_Jem.jpg?width=1920') center/cover no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #80c1ff;
+}
+
+.lang-switcher {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.lang-switcher option {
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Sections */
+section {
+    padding: 6rem 10%;
+    text-align: center;
+}
+
+.about {
+    background-color: var(--section-bg);
+}
+
+.about h2, .highlights h2 {
+    font-size: 2.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.about p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.8;
+}
+
+/* Cards Layout */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Timeline Section */
+.timeline-section {
+    background-color: var(--bg-color);
+}
+
+.timeline-section h2 {
+    font-size: 2.8rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.timeline-section > p {
+    font-size: 1.25rem;
+    margin-bottom: 4rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: white;
+    border: 4px solid var(--primary-color);
+    top: 25px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid var(--card-bg);
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent var(--card-bg);
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid var(--card-bg);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--card-bg) transparent transparent;
+}
+
+.right::after {
+    left: -10px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--card-bg);
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: left;
+    border-left: 5px solid var(--primary-color);
+}
+
+.timeline-content h3 {
+    color: var(--heading-color);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Responsive Timeline */
+@media screen and (max-width: 768px) {
+    .timeline-container::after {
+        left: 31px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    .timeline-item::before {
+        left: 60px;
+        border: medium solid var(--card-bg);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--card-bg) transparent transparent;
+    }
+    .left::after, .right::after {
+        left: 21px;
+    }
+    .right {
+        left: 0%;
+    }
+}
+
+/* Gallery Section */
+.gallery {
+    background-color: var(--section-bg);
+}
+
+.gallery h2 {
+    font-size: 2.8rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.gallery p {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: 250px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Location Section */
+.location {
+    background-color: var(--bg-color);
+}
+
+.location h2 {
+    font-size: 2.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.location p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.8;
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+footer {
+    background-color: var(--heading-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* --- CREATIVE ADDITIONS --- */
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Interactive Flip Cards (Facts Section) */
+.facts {
+    background-color: var(--section-bg);
+}
+
+.facts h2 {
+    font-size: 2.8rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.facts p {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.flip-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 320px;
+    height: 220px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: show;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 2rem;
+}
+.flip-card-back p{
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: black;
+    opacity: 0.8;
+}
+.flip-card-front {
+    background: linear-gradient(135deg, var(--primary-color), var(--heading-color));
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.flip-card-back {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 3px solid var(--primary-color);
+    transform: rotateY(180deg);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 3rem; }
+    .nav-links { display: none; /* In a full app, you'd add a hamburger menu here */ }
+    section { padding: 4rem 5%; }
+}
