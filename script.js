@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         en: {
             "nav-about": "About", "nav-hl": "Highlights", "nav-facts": "Fun Facts", "nav-hist": "History", "nav-gal": "Gallery", "nav-loc": "Location",
             "hero-h1": "Step Into Ancient Rome at El Jem", "hero-p": "Walk the corridors of gladiators and emperors in one of the most impressive and best-preserved Roman ruins in the world.",
-            "about-h2": "The Crown Jewel of Roman Africa", "about-p": "The Amphitheatre of El Jem is an exceptionally well-preserved Roman colosseum located in the small town of El Jem, Tunisia. Built around 238 AD, it is the largest colosseum in North Africa and could hold up to 35,000 spectators. Walking through its massive stone arches, you are instantly transported back to a time of epic gladiator battles and chariot races.",
+            "about-h2": "The Crown Jewel of Roman Africa", "about-p": "The Amphitheatre of El Jem is an exceptionally well-preserved colosseum that lets you step into Ancient Rome right here in Tunisia. Built around 238 AD, it is the largest colosseum in North Africa and could hold up to 35,000 spectators. Walking through its massive stone arches, you are instantly transported back to a time of epic gladiator battles and chariot races.",
             "hl-h2": "Historical Highlights", "hl-1-h3": "The Underground Tunnels", "hl-1-p": "Descend into the dark, intact underground corridors where gladiators and wild animals were kept before entering the arena.", "hl-2-h3": "El Jem Museum", "hl-2-p": "Visit the nearby archaeological museum to view some of the most exquisite and vibrant Roman mosaics ever discovered in Africa.", "hl-3-h3": "Symphony Under the Stars", "hl-3-p": "Experience the magical acoustics of the arena during the International Festival of Symphonic Music held here every summer.",
             "facts-h2": "Did You Know?", "facts-p": "Discover some fascinating secrets about the Amphitheatre of El Jem.",
             "fact-1-h3": "A Hollywood Star", "fact-1-p": "The amphitheatre was famously used as a filming location for several movies, including the blockbuster 'Gladiator' and 'Life of Brian'.",
@@ -125,12 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
             "time-4-p": "The Amphitheatre of El Jem is officially declared a UNESCO World Heritage Site, recognizing its status as a masterpiece of Roman architecture.",
             "gal-h2": "Captivating Views", "gal-p": "Explore the stunning ancient architecture of El Jem.",
             "loc-h2": "Where to Find Us", "loc-p": "The Amphitheatre is located in the town of El Jem, situated in the Mahdia Governorate of Tunisia, halfway between Sousse and Sfax.",
+            "footer-about-h3": "Discover El Jem", "footer-about-p": "A journey through time and history in the heart of Tunisia.",
+            "footer-links-h3": "Quick Links", "foot-link-about": "About", "foot-link-hl": "Highlights", "foot-link-gal": "Gallery",
+            "footer-contact-h3": "Contact Us",
             "foot-p": "&copy; 2026 Tunisia Travel. All rights reserved."
         },
         fr: {
             "nav-about": "À Propos", "nav-hl": "Points Forts", "nav-facts": "Le Saviez-vous", "nav-hist": "Histoire", "nav-gal": "Galerie", "nav-loc": "Emplacement",
             "hero-h1": "Plongez dans la Rome Antique à El Jem", "hero-p": "Parcourez les couloirs des gladiateurs dans l'une des ruines romaines les mieux conservées au monde.",
-            "about-h2": "Le Joyau de l'Afrique Romaine", "about-p": "L'amphithéâtre d'El Jem est un colisée romain exceptionnellement bien conservé situé en Tunisie. Construit vers 238 après J.-C., c'est le plus grand d'Afrique du Nord, pouvant accueillir 35 000 spectateurs. Vous êtes instantanément transporté à l'époque des batailles épiques.",
+            "about-h2": "Le Joyau de l'Afrique Romaine", "about-p": "L'amphithéâtre d'El Jem est un colisée exceptionnellement bien conservé qui vous permet de plonger dans la Rome Antique ici même en Tunisie. Construit vers 238 après J.-C., c'est le plus grand d'Afrique du Nord, pouvant accueillir 35 000 spectateurs. Vous êtes instantanément transporté à l'époque des batailles épiques.",
             "hl-h2": "Points Forts Historiques", "hl-1-h3": "Tunnels Souterrains", "hl-1-p": "Descendez dans les sombres couloirs souterrains intacts où gladiateurs et animaux sauvages étaient gardés.", "hl-2-h3": "Musée d'El Jem", "hl-2-p": "Visitez le musée pour admirer certaines des mosaïques romaines les plus exquises jamais découvertes en Afrique.", "hl-3-h3": "Symphonie", "hl-3-p": "Découvrez l'acoustique magique lors du Festival International de Musique Symphonique chaque été.",
             "facts-h2": "Le Saviez-vous ?", "facts-p": "Découvrez quelques secrets fascinants sur l'amphithéâtre d'El Jem.",
             "fact-1-h3": "Star d'Hollywood", "fact-1-p": "L'amphithéâtre a été utilisé comme lieu de tournage pour plusieurs films, dont le blockbuster 'Gladiator'.",
@@ -143,6 +146,9 @@ document.addEventListener('DOMContentLoaded', () => {
             "time-4-p": "L'amphithéâtre d'El Jem est officiellement déclaré site du patrimoine mondial de l'UNESCO.",
             "gal-h2": "Vues Captivantes", "gal-p": "Explorez la magnifique architecture ancienne d'El Jem.",
             "loc-h2": "Où Nous Trouver", "loc-p": "L'amphithéâtre est situé dans la ville d'El Jem, à mi-chemin entre Sousse et Sfax.",
+            "footer-about-h3": "Découvrez El Jem", "footer-about-p": "Un voyage à travers le temps et l'histoire au cœur de la Tunisie.",
+            "footer-links-h3": "Liens Rapides", "foot-link-about": "À Propos", "foot-link-hl": "Points Forts", "foot-link-gal": "Galerie",
+            "footer-contact-h3": "Contactez-nous",
             "foot-p": "&copy; 2026 Tunisia Travel. Tous droits réservés."
         }
     };
@@ -160,7 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
         "time-1-p": ".timeline-item:nth-child(1) .timeline-content p", "time-2-p": ".timeline-item:nth-child(2) .timeline-content p", "time-3-p": ".timeline-item:nth-child(3) .timeline-content p", "time-4-p": ".timeline-item:nth-child(4) .timeline-content p",
         "gal-h2": ".gallery h2", "gal-p": ".gallery p",
         "loc-h2": ".location h2", "loc-p": ".location p",
-        "foot-p": "footer p"
+        "footer-about-h3": ".footer-about-h3", "footer-about-p": ".footer-about-p",
+        "footer-links-h3": ".footer-links-h3", "foot-link-about": ".foot-link-about", "foot-link-hl": ".foot-link-hl", "foot-link-gal": ".foot-link-gal",
+        "footer-contact-h3": ".footer-contact-h3",
+        "foot-p": ".foot-copy"
     };
 
     const langSwitcher = document.getElementById('langSwitcher');
