@@ -1,18 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+ 
 
     // 4. Scroll Reveal Animations (Creative Idea)
     const sections = document.querySelectorAll('section');
@@ -24,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const revealOptions = {
         threshold: 0.15, // Trigger when 15% of the element is visible
-        rootMargin: "0px 0px -50px 0px"
     };
 
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -53,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, {
         threshold: 0.2, // Trigger when 20% visible
-        rootMargin: "0px 0px -50px 0px"
     });
 
     timelineItems.forEach(item => {
@@ -67,33 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrolled = (winScroll / height) * 100;
         document.getElementById("progressBar").style.width = scrolled + "%";
     });
-
-    // 6. Dark/Light Theme Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    
-    if (themeToggle) {
-        // Check for saved theme preference, otherwise use system preference
-        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'dark') {
-                themeToggle.textContent = '☀️';
-            }
-        }
-
-        themeToggle.addEventListener('click', () => {
-            let theme = document.documentElement.getAttribute('data-theme');
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                themeToggle.textContent = '🌙';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = '☀️';
-            }
-        });
-    }
 
     // 7. Weather Widget Simulator (Randomizes slightly to feel alive)
     const tempElement = document.querySelector('.weather-widget .temp');
@@ -178,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const lang = e.target.value;
             for (let key in selectors) {
                 const element = document.querySelector(selectors[key]);
+                console.log(selectors[key])
                 if (element) {
                     element.innerHTML = translations[lang][key];
                 }
