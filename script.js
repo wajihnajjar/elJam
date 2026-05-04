@@ -42,11 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 // Scrolled Variable is 0 
 // Buuuug
+    const progressBar = document.getElementById("progressBar");
+    
     window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        document.getElementById("progressBar").style.width = scrolled + "%";
+        const maxScrollableHeight = document.body.scrollHeight - window.innerHeight;
+        const currentScrollPosition = window.scrollY;
+        console.log(document.body.scrollHeight , window.innerHeight,currentScrollPosition);
+        const scrollPercentage = (currentScrollPosition / maxScrollableHeight) * 100;
+        progressBar.style.width = `${scrollPercentage}%`;
     });
 
     const tempElement = document.querySelector('.weather-widget .temp');
