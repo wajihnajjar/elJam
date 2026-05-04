@@ -1,16 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
  
+// Const;
 
-    // 4. Scroll Reveal Animations (Creative Idea)
     const sections = document.querySelectorAll('section');
     
-    // Add the 'reveal' class to all sections dynamically
     sections.forEach(section => {
         section.classList.add('reveal');
     });
-
+// Can Bee 0.12 ? 
     const revealOptions = {
-        threshold: 0.15, // Trigger when 15% of the element is visible
+        threshold: 0.15,
     };
 
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!entry.isIntersecting) return;
             
             entry.target.classList.add('active');
-            observer.unobserve(entry.target); // Stop observing once revealed
+            observer.unobserve(entry.target);
         });
     }, revealOptions);
 
@@ -26,26 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
         revealOnScroll.observe(section);
     });
 
-    // 5. Timeline Animation Logic
     const timelineItems = document.querySelectorAll('.timeline-item');
-    
+    // Add tje  unbserver 
     const timelineObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show');
-                // Optional: Stop observing once animated
-                // observer.unobserve(entry.target); 
             }
         });
     }, {
-        threshold: 0.2, // Trigger when 20% visible
+        threshold: 0.2,
     });
 
     timelineItems.forEach(item => {
         timelineObserver.observe(item);
     });
-
-    // 6. Scroll Progress Bar
+// Scrolled Variable is 0 
+// Buuuug
     window.addEventListener('scroll', () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -53,19 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("progressBar").style.width = scrolled + "%";
     });
 
-    // 7. Weather Widget Simulator (Randomizes slightly to feel alive)
     const tempElement = document.querySelector('.weather-widget .temp');
     if (tempElement) {
-        // Base temp for El Jem (inland, slightly hotter)
         let baseTemp = 29; 
         setInterval(() => {
-            // Randomly fluctuate temp by -1, 0, or +1 degree every 30 seconds for realism
             const fluctuation = Math.floor(Math.random() * 3) - 1; 
             tempElement.textContent = `${baseTemp + fluctuation}°C`;
         }, 30000);
     }
-
-    // 8. Multilingual Support
+//
     const translations = {
         en: {
             "nav-about": "About", "nav-hl": "Highlights", "nav-facts": "Fun Facts", "nav-hist": "History", "nav-gal": "Gallery", "nav-loc": "Location",
@@ -136,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const lang = e.target.value;
             for (let key in selectors) {
                 const element = document.querySelector(selectors[key]);
-                console.log(selectors[key])
                 if (element) {
                     element.innerHTML = translations[lang][key];
                 }

@@ -1,49 +1,54 @@
 * {
+
     margin: 0;
+
     padding: 0;
+
+
     box-sizing: border-box;
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root {
+
     --bg-color: #ffffff;
+
     --text-color: #333333;
+
     --section-bg: #fdfaf6;
     --card-bg: #ffffff;
     --heading-color: #6b4c1a;
     --primary-color: #b5651d;
+
 }
 
 html {
-    scroll-behavior: smooth;
-}
+    scroll-behavior: smooth;}
 
 body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-}
+          }
 
-/* Scroll Progress Bar */
 .progress-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 5px;
-    background: transparent;
-    z-index: 2000;
+    background: transparent;z-index: 2000;
 }
-
-.progress-bar {
+.progress-bar { 
     height: 100%;
     background: linear-gradient(90deg, #b5651d, #e29f58);
     width: 0%;
     transition: width 0.1s ease-out;
-}
 
-/* Floating Weather Widget */
-.weather-widget {
+}
+.weather-widget 
+{
     position: fixed;
     bottom: 30px;
     left: 30px;
@@ -62,9 +67,12 @@ body {
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
+    0% {
+         transform: translateY(0px); }
+    50% { 
+        transform: translateY(-8px); }
+    100% { 
+        transform: translateY(0px); }
 }
 
 .weather-icon {
@@ -90,15 +98,28 @@ body {
     opacity: 0.9;
 }
 
-/* Hero Section */
 .hero {
     height: 100vh;
-    /* Using a high-quality free Wikimedia Commons image of the Amphitheatre of El Jem */
     background: linear-gradient(rgba(45, 25, 0, 0.6), rgba(45, 25, 0, 0.8)), 
                 url('https://commons.wikimedia.org/wiki/Special:FilePath/Amphitheatre_of_El_Jem.jpg?width=1920') center/cover no-repeat;
     color: white;
     display: flex;
     flex-direction: column;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* test test*/ 
 }
 
 nav {
@@ -121,6 +142,7 @@ nav {
     gap: 2.5rem;
     align-items: center;
 }
+/*  Nav Bar Should be Have Some Annomation*/
 
 .nav-links a {
     color: white;
@@ -152,6 +174,7 @@ nav {
 }
 
 .hero-content {
+    /*//////////*/
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -174,7 +197,6 @@ nav {
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
 
-/* Sections */
 section {
     padding: 6rem 10%;
     text-align: center;
@@ -199,7 +221,6 @@ section {
     line-height: 1.8;
 }
 
-/* Cards Layout */
 .cards {
     display: flex;
     justify-content: center;
@@ -235,7 +256,6 @@ section {
     opacity: 0.8;
 }
 
-/* Timeline Section */
 .timeline-section {
     background-color: var(--bg-color);
 }
@@ -360,7 +380,6 @@ section {
     line-height: 1.6;
 }
 
-/* Responsive Timeline */
 @media screen and (max-width: 768px) {
     .timeline-container::after {
         left: 31px;
@@ -384,7 +403,6 @@ section {
     }
 }
 
-/* Gallery Section */
 .gallery {
     background-color: var(--section-bg);
 }
@@ -428,7 +446,6 @@ section {
     transform: scale(1.1);
 }
 
-/* Location Section */
 .location {
     background-color: var(--bg-color);
 }
@@ -512,9 +529,6 @@ section {
     opacity: 0.7;
 }
 
-/* --- CREATIVE ADDITIONS --- */
-
-/* Scroll Reveal Animation */
 .reveal {
     opacity: 0;
     transform: translateY(60px);
@@ -525,7 +539,6 @@ section {
     transform: translateY(0);
 }
 
-/* Interactive Flip Cards (Facts Section) */
 .facts {
     background-color: var(--section-bg);
 }
@@ -604,9 +617,8 @@ section {
     line-height: 1.6;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 3rem; }
-    .nav-links { display: none; /* In a full app, you'd add a hamburger menu here */ }
+    .nav-links { display: none; }
     section { padding: 4rem 5%; }
 }
